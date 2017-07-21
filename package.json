@@ -5,6 +5,10 @@
   "main": "index.js",
   "bin": "bin.js",
   "author": "huozhi",
+  "files": [
+    "*.md",
+    "*.js"
+  ],
   "license": "MIT",
   "dependencies": {
     "glob": "^7.1.2",
