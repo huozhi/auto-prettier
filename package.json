@@ -1,0 +1,14 @@
+{
+  "name": "auto-prettier",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "bin.js",
+  "author": "huozhi",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^7.1.2",
+    "ignore": "^3.3.3",
+    "prettier": "^1.5.2"
+  }
+}
