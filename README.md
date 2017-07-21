@@ -22,6 +22,9 @@ package.json
 {
   "scripts": {
     "auto-prettier": "auto-prettier"  
+  },
+  "auto-prettier": {
+    "files": ["./src/**/*.js"]  
   }
 }
 ```
