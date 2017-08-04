@@ -1,6 +1,11 @@
 # auto-prettier
 > prettier with restricted rules
 
+### Features
+
+- Help you filter out ignorance in `.gitignore`
+- Auto resolve your project directory
+
 ### Rules
 
 ```
@@ -24,7 +29,10 @@ package.json
     "auto-prettier": "auto-prettier"  
   },
   "auto-prettier": {
-    "files": ["./src/**/*.js"]  
+    "files": [
+      "src/**/*.js",
+      "test/**/*.js"
+    ]
   }
 }
 ```
