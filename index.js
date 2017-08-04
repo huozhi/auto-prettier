@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const glob = require('glob')
+const globby = require('globby')
 const ignores = require('ignore')()
 const prettier = require('prettier')
 const prettierConfig = require('./config')
@@ -38,27 +38,40 @@ if (fs.existsSync(ignoreFilePath)) {
 
 const rules = ignores.add(ignoreContent)
 
-function matchFiles() {
-  return new Promise((resolve, reject) => {
-    glob(options.files.join(), options.glob, (err, matches) => {
-      if (err) {
-        reject(err)
-      }
-      resolve(rules.filter(matches))
-    })
-  })
+let changeFileCount = 0
+
+function filterIgnores(paths) {
+  return Promise.resolve(rules.filter(paths))
 }
 
-matchFiles().then(filenames => {
-  filenames.forEach(filename => {
-    const filePath = path.resolve(filename)
-    const content = fs.readFileSync(filePath, 'utf-8')
-    const formatted = prettier.format(content, prettierConfig)
-    if (content !== formatted) {
-      fs.writeFileSync(filePath, formatted, 'utf-8')
-      log('write', filePath)
-    } 
-  })
-  log('Finished')
-})
+function findGlobMatches(files) {
+  return globby(files, options.glob)
+}
 
+function writeFileIfNecessary(filename) {
+  const filePath = path.resolve(filename)
+  const content = fs.readFileSync(filePath, 'utf-8')
+  const formatted = prettier.format(content, prettierConfig)
+  if (content !== formatted) {
+    changeFileCount++
+    fs.writeFileSync(filePath, formatted, 'utf-8')
+    log('write', filePath)
+  }
+}
+
+function batchWriteFiles(files) {
+  files.forEach(writeFileIfNecessary)
+
+  if (changeFileCount === 0) {
+    log('No File Changed!')
+  } else {
+    log('Overwrite Finished')
+  }
+}
+
+function main() {
+  findGlobMatches(options.files).then(filterIgnores).then(batchWriteFiles)
+}
+
+// execute
+main()

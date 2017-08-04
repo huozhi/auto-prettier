@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+array-union@^1.0.1:
+  version "1.0.2"
+  resolved "http://npm.in.zhihu.com/array-union/-/array-union-1.0.2.tgz#9a34410e4f4e3da23dea375be5be70f24778ec39"
+  dependencies:
+    array-uniq "^1.0.1"
+
+array-uniq@^1.0.1:
+  version "1.0.3"
+  resolved "http://npm.in.zhihu.com/array-uniq/-/array-uniq-1.0.3.tgz#af6ac877a25cc7f74e058894753858dfdb24fdb6"
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "http://npm.in.zhihu.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
@@ -21,7 +31,7 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "http://npm.in.zhihu.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
-glob@^7.1.2:
+glob@^7.0.3:
   version "7.1.2"
   resolved "http://npm.in.zhihu.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
@@ -31,6 +41,16 @@ glob@^7.1.2:
     minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+globby@^6.1.0:
+  version "6.1.0"
+  resolved "http://npm.in.zhihu.com/globby/-/globby-6.1.0.tgz#f5a6d70e8395e21c858fb0489d64df02424d506c"
+  dependencies:
+    array-union "^1.0.1"
+    glob "^7.0.3"
+    object-assign "^4.0.1"
+    pify "^2.0.0"
+    pinkie-promise "^2.0.0"
 
 ignore@^3.3.3:
   version "3.3.3"
@@ -53,6 +73,10 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
+object-assign@^4.0.1:
+  version "4.1.1"
+  resolved "http://npm.in.zhihu.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+
 once@^1.3.0:
   version "1.4.0"
   resolved "http://npm.in.zhihu.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
@@ -62,6 +86,20 @@ once@^1.3.0:
 path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "http://npm.in.zhihu.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
+
+pify@^2.0.0:
+  version "2.3.0"
+  resolved "http://npm.in.zhihu.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
+
+pinkie-promise@^2.0.0:
+  version "2.0.1"
+  resolved "http://npm.in.zhihu.com/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
+  dependencies:
+    pinkie "^2.0.0"
+
+pinkie@^2.0.0:
+  version "2.0.4"
+  resolved "http://npm.in.zhihu.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
 prettier@^1.5.2:
   version "1.5.2"
